@@ -1,0 +1,298 @@
+:root {
+  /* Fresh light-gray palette (clean & airy) */
+  --bg: #f4f5f7; /* light gray */
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.92);
+  --text: rgba(25, 28, 33, 0.92);
+  --muted: rgba(25, 28, 33, 0.62);
+  --border: rgba(25, 28, 33, 0.12);
+  --shadow: 0 18px 60px rgba(17, 24, 39, 0.10);
+  --accent: #7a8aa2; /* soft gray-blue */
+  --accent-2: #86a3a2; /* soft gray-teal */
+  --danger: #c27171; /* soft muted red */
+  --radius: 18px;
+  --container: 1100px;
+  --font: "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 18% 12%, rgba(122, 138, 162, 0.12), transparent 58%),
+    radial-gradient(900px 600px at 82% 14%, rgba(134, 163, 162, 0.10), transparent 62%),
+    radial-gradient(1000px 800px at 50% 86%, rgba(255, 255, 255, 0.65), transparent 62%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page {
+  padding: 38px 0 60px;
+}
+
+.page-head {
+  padding: 18px 0 20px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 40px);
+  letter-spacing: -0.3px;
+}
+
+.page-subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  max-width: 90ch;
+}
+
+.section {
+  padding: 16px 0;
+}
+
+/* Controls */
+.vocab-panel {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.vocab-controls {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.8fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+select,
+input[type="range"],
+textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  padding: 12px;
+  font-family: inherit;
+}
+
+input[type="range"] {
+  padding: 12px 0;
+}
+
+textarea {
+  margin-top: 10px;
+  resize: vertical;
+}
+
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(139, 138, 167, 0.24);
+  border-color: rgba(139, 138, 167, 0.55);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vocab-buttons {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease,
+    filter 120ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(139, 138, 167, 0.28);
+}
+
+.button.primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+}
+
+.button.subtle {
+  background: transparent;
+  color: var(--muted);
+}
+
+.hint {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.vocab-import {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.vocab-import summary {
+  cursor: pointer;
+  font-weight: 900;
+  color: var(--text);
+}
+
+/* Table */
+.vocab-table-wrap {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.70);
+  overflow: hidden;
+}
+
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vocab-table thead th {
+  text-align: left;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--border);
+}
+
+.vocab-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.col-no {
+  width: 60px;
+}
+
+.col-input {
+  width: 34%;
+}
+
+.vocab-row.is-active {
+  background: rgba(122, 138, 162, 0.12);
+}
+
+.vocab-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.speak-btn {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.speak-btn:hover {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.vocab-meaning.is-hidden,
+.vocab-term.is-hidden {
+  filter: blur(10px);
+  opacity: 0.35;
+  user-select: none;
+}
+
+.vocab-input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  padding: 10px 10px;
+}
+
+.vocab-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(139, 138, 167, 0.24);
+  border-color: rgba(139, 138, 167, 0.55);
+}
+
+.diff {
+  font-weight: 900;
+}
+
+.diff .bad {
+  color: var(--danger);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .vocab-controls {
+    grid-template-columns: 1fr;
+  }
+  .col-input {
+    width: auto;
+  }
+}
+
